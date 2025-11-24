@@ -4,8 +4,54 @@ A console-based Java application for managing student records, courses, grades, 
 
 ## Project Overview
 
-CCRM is a comprehensive Java SE application that demonstrates core Java features and object-oriented programming principles. It provides functionality for:
+CCRM is a comprehensive Java SE application that demonstrates core Java features and object-oriented programming principles. This implementation follows a layered architecture pattern with clean separation of concerns, making the system modular, maintainable, and extensible.
 
+### Implementation Approach
+
+#### 1. Architecture Overview
+The project is structured in multiple layers:
+- Domain Layer (`edu.ccrm.domain`): Contains the core business entities
+- Service Layer (`edu.ccrm.service`): Implements business logic and operations
+- I/O Layer (`edu.ccrm.io`): Handles data persistence and file operations
+- CLI Layer (`edu.ccrm.cli`): Manages user interaction
+- Configuration (`edu.ccrm.config`): Handles application configuration
+- Utilities (`edu.ccrm.util`): Provides common utilities and custom exceptions
+
+#### 2. Object-Oriented Design
+The implementation leverages key OOP principles:
+- **Inheritance Hierarchy**: Abstract `Person` class extended by `Student` and `Instructor`
+- **Interface-based Design**: Service interfaces with multiple implementations possible
+- **Encapsulation**: Private fields with controlled access through methods
+- **Polymorphism**: Service implementations can be swapped without changing client code
+
+#### 3. Design Patterns
+- **Singleton**: `AppConfig` for application-wide configuration
+- **Builder**: `Course.Builder` for flexible object construction
+- **Strategy**: Service interfaces allowing different implementation strategies
+- **Factory Methods**: For creating domain objects with proper validation
+
+#### 4. Modern Java Features
+The code utilizes:
+- Stream API for data processing and filtering
+- NIO.2 for efficient file operations
+- Date/Time API for temporal data management
+- Optional for null-safety
+- Lambda expressions and method references
+
+#### 5. Error Handling
+Robust error handling through:
+- Custom exceptions for business logic violations
+- Runtime assertions for invariant checking
+- Try-with-resources for resource management
+- Comprehensive error messages and logging
+
+#### 6. Data Management
+- In-memory data structures with future persistence capability
+- CSV import/export functionality
+- Automated backup system with recursive operations
+- Thread-safe singleton configuration
+
+Core Features:
 - Student Management (create/update, enroll/unenroll)
 - Course Management (create/update, search, assign instructors)
 - Grades & Transcripts (record marks, compute GPA)
